@@ -13,7 +13,7 @@
         <meta name="theme-color" content="#000" />
         <meta
             name="description"
-            content="Muhemmed Ibraqimov. Azerbaijan Front-End Dev, Web Designer. Website, UI/UX, . Developer based in Belluno."
+            content="Muhemmed Ibraqimov. Azerbaijan Front-End Dev, Web Designer. Website, UI/UX, . Developer based in Baku."
         />
         <meta name="author" content="Muhemmed Ibraqimov" />
         <meta name="robots" content="noodp" />
@@ -55,24 +55,24 @@
         />
         <meta
             property="og:title"
-            content="Muhemmed Ibraqimov. Award-winning Developer &amp; Designer"
+            content="Muhemmed Ibraqimov.  Developer &amp; Designer"
         />
         <meta
             property="og:description"
             content="Muhemmed Ibraqimov. Azerbaijan Front-End Dev, Web Designer. Website, UI/UX, . Developer based in Belluno."
         />
-        <meta property="og:url" content="https://bepatrickdavid.com" />
+        <meta property="og:url" content="https://muhemed-ibrahimov.com" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="https://bepatrickdavid.com" />
-        <meta name="twitter:creator" content="@bepatrickdavid" />
-        <meta name="twitter:url" content="https://bepatrickdavid.com" />
+        <meta name="twitter:site" content="https://muhemed-ibrahimov.com" />
+        <meta name="twitter:creator" content="@muhemed-ibrahimov" />
+        <meta name="twitter:url" content="https://muhemed-ibrahimov.com" />
         <meta
             name="twitter:title"
-            content="Muhemmed Ibraqimov. Award-winning Developer &amp; Designer"
+            content="Muhemmed Ibraqimov.  Developer &amp; Designer"
         />
         <meta
             name="twitter:description"
-            content="Muhemmed Ibraqimov. Azerbaijan Front-End Dev, Web Designer. Website, UI/UX, . Developer based in Belluno."
+            content="Muhemmed Ibraqimov. Azerbaijan Front-End Dev, Web Designer. Website, UI/UX, . Developer based in Baku."
         />
         <meta
             name="twitter:image"
@@ -252,7 +252,7 @@
                             data-margin="none"
                             style="text-align: right"
                         >
-                            developer based in Azerbaijan. I have many years of
+                            Designer based in Azerbaijan. I have many years of
                             experience in consulting in all areas of digital. I
                             love minimal and brutalist design.
                         </p>
@@ -892,10 +892,9 @@
                                     >
                                 </h2>
                                 <p class="content__item-text uppercase">
-                                    Worked as a UX/UI designer and MERN stack
-                                    developer at an Azerbaijani web company —
-                                    designing intuitive interfaces and building
-                                    full-stack digital solutions.
+                                    UX/UI designer & MERN developer at an
+                                    Azerbaijani web company — crafting intuitive
+                                    interfaces and full-stack solutions.
                                 </p>
                                 <button class="back" aria-label="Go Back">
                                     <svg
@@ -2579,98 +2578,98 @@
     </body>
 
     <script>
-        let el = document.querySelector('#works');
+        let works = document.querySelector('#works');
+        let projects_list = document.querySelector('#projects-list');
 
-        const projects = [
-            {
-                domain: 'fitlifegym.com',
-                usedTechnology: 'Next.js, Tailwind CSS, Vercel',
-                info: 'A gym website',
-                url: 'https://fitlifegym.com',
-                img: 'https://placehold.co/600x400',
-            },
-            {
-                domain: 'foodyapp.io',
-                usedTechnology: 'React, Node.js, MongoDB',
-                info: 'A food delivery',
-                url: 'https://foodyapp.io',
-                img: 'https://placehold.co/600x400',
-            },
-            {
-                domain: 'artvisiongallery.net',
-                usedTechnology: 'Vue.js, Firebase, GSAP',
-                info: 'An art gallery',
-                url: 'https://artvisiongallery.net',
-                img: 'https://placehold.co/600x400',
-            },
-        ];
+        const CurrentProJectsUrl =
+            'https://72ta4ai5.api.sanity.io/v2025-06-01/data/query/production?query=*[_type%20==%20%22project%22]';
+        const AllProjectsUrl =
+            'https://72ta4ai5.api.sanity.io/v2025-06-01/data/query/production?query=*[_type%20==%20%22projesAll%22]';
+        const fetchProjects = async (url) => {
+            try {
+                const response = await fetch(url, {
+                    headers: {
+                        Authorization:
+                            'Bearer skCZ2QtdxLNFljw1FNCfEYOO9R4ZATiHFcc2Cyb3LKD8XAqHfu2Q5uoOOjM0Zciv76ZkSa5OXezKwREJHxduF0mS2Aw6TK0E8yresxFl34y3YJSpiB9g5dtEC0DQv4YE7BXDZAldvYpE12WaAJ2yJjLRQGFz0p4Pr4Iri6aHu1oLxNFmIgBG',
+                    },
+                });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                return data.result;
+            } catch (error) {
+                console.error('Fetch error:', error);
+                return [];
+            }
+        };
+        function getSanityImageUrl(ref) {
+            if (!ref || !ref.startsWith('image-')) return '';
 
-        let projectsItems = projects
-            .map(
-                (item) => `
-  <div class="list title-text simple">
-    <div class="title">
-      <span class="h5">${item.domain}</span>
-    </div>
-    <div class="title">
-      <span class="h5">${item.usedTechnology}</span>
-    </div>
-    <div class="name">
-      <span class="h5">${item.info}</span>
-    </div>
-    <span class="line" style="visibility: visible"></span>
-    <picture>
-      <source type="image/webp" srcset="${item.img}" media="--pi" />
-      <source type="image/jpg" srcset="${item.img}" media="--pi" />
-      <source type="image/webp" srcset="${item.img}" media="--md" />
-      <source type="image/jpg" srcset="${item.img}" media="--md" />
-      <source type="image/webp" srcset="${item.img}" media="--mobile" />
-      <source type="image/jpg" srcset="${item.img}" media="--mobile" />
-      <img src="${item.img}" alt="${item.domain} preview" />
-    </picture>
-    <div class="marquee">
-      <div class="marquee-inner" aria-hidden="true">
-        ${Array(18).fill(`<span>${item.domain}</span>`).join('')}
-      </div>
-    </div>
-  </div>
-  `
-            )
-            .join('');
+            const parts = ref.split('-');
+            if (parts.length !== 4) return '';
 
-        el.innerHTML = `
-    <div class="list--header">
-      <div class="title">
-        <span class="h2">Project</span>
-      </div>
-      <div class="title">
-        <span class="h2">Platform</span>
-      </div>
-      <div class="title">
-        <span class="h2">Info</span>
-      </div>
-      <span class="line"></span>
-    </div>
-    ${projectsItems}
-    <div class="cta">
-      <button
-        data-awards
-        data-speed="3"
-        class="btn--md--extra--border--animation"
-        aria-label="Go To Awards List"
-      >
-        <span>view more</span>
-        <div class="marquee" aria-hidden="true">
-          <div class="marquee--inner">
-            <span>view more</span><span>view more</span><span>view more</span>
-            <span>view more</span><span>view more</span><span>view more</span>
-            <span>view more</span><span>view more</span>
+            const assetId = parts[1];
+            const dimensions = parts[2]; // e.g., "396x495"
+            const format = parts[3]; // e.g., "png"
+
+            const projectId = '72ta4ai5';
+            const dataset = 'production';
+
+            return `https://cdn.sanity.io/images/${projectId}/${dataset}/${assetId}-${dimensions}.${format}`;
+        }
+
+        const loadProjects = async () => {
+            const currentProjects = await fetchProjects(CurrentProJectsUrl);
+            const allProjects = await fetchProjects(AllProjectsUrl);
+            const CurrentProjectsItems = currentProjects
+                .map((item) => {
+                    const imageUrl = getSanityImageUrl(item.img.asset._ref);
+
+                    return `
+      <a href="${item.url}" target="_blank" class="project-link">
+        <div class="list title-text simple">
+          <div class="title">
+            <span class="h5">${item.domain}</span>
+          </div>
+          <div class="title">
+            <span class="h5">${item.usedTechnology}</span>
+          </div>
+          <div class="name">
+            <span class="h5">${item.info}</span>
+          </div>
+          <span class="line" style="visibility: visible"></span>
+          <picture>
+            <img src="${imageUrl}" alt="${item.domain} preview" />
+          </picture>
+          <div class="marquee">
+            <div class="marquee-inner" aria-hidden="true">
+              ${Array(18).fill(`<span>${item.domain}</span>`).join('')}
+            </div>
           </div>
         </div>
-      </button>
-    </div>
-  `;
-        let projects_list = document.querySelector('#projects-list');
+      </a>
+    `;
+                })
+                .join('');
+            console.log(allProjects);
+
+            works.innerHTML = ` <div class="list--header">
+                    <div class="title">
+                      <span class="h2">Project</span>
+                    </div>
+                    <div class="title">
+                      <span class="h2">Platform</span>
+                    </div>
+                    <div class="title">
+                      <span class="h2">Info</span>
+                    </div>
+                    <span class="line"></span>
+                  </div>
+                ${CurrentProjectsItems}<div class="cta">
+                   `;
+        };
+        loadProjects();
 
         const projesAll = [
             {
@@ -2692,19 +2691,5 @@
                 url: 'https://foodyapp.io/',
             },
         ];
-
-        projects_list.innerHTML = projesAll
-            .map(
-                (project) => `
-        <a href="${project.url}" target="_blank" rel="noopener noreferrer">
-          <li>
-            <span class="h5">${project.name}</span>
-            <span class="h5">${project.services}</span>
-            <span class="h5">${project.year}</span>
-          </li>
-        </a>
-      `
-            )
-            .join('');
     </script>
 </html>

@@ -739,7 +739,7 @@ h2 [class*='split'],
 h2 [class*='split'] [class*='line'],
 [class*='h2'] [class*='split'] [class*='line'] {
     transform-origin: 0 50%;
-    white-space: nowrap;
+    white-space: wrap;
     will-change: transform;
     display: block;
 }
@@ -3791,7 +3791,7 @@ html[class*='font-loaded'] [class*='availability'] .label {
 }
 
 [class|='page-content'] section#intro [class*='main-wrapper'] [class*='text'] {
-    padding-left: 12vw;
+    /* padding-left: 12vw; */
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1535px) {
